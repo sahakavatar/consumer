@@ -34,22 +34,22 @@ jobs:
 
 
       # Step 5: Set up SSH key for remote server access
-      - name: Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
+     # - name: Set up SSH key
+      #  run: |
+       #   mkdir -p ~/.ssh
+       #   echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+        #  chmod 600 ~/.ssh/id_ed25519
 
-      - name: Add known hosts
-        run: |
-          ssh-keyscan -H 45.159.75.103 >> ~/.ssh/known_hosts
+    #  - name: Add known hosts
+     #   run: |
+    #      ssh-keyscan -H 45.159.75.103 >> ~/.ssh/known_hosts
 
       # Step 6: Deploy to remote server via SSH
-      - name: Deploy to remote server
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 sahak@45.159.75.103 << 'EOF'
-            docker pull sahakavatar/kafka-go-consumer:latest
-            docker stop consumer-app || true
-            docker rm consumer-app || true
-            docker run -d -p 9090:9090 --name consumer-app sahakavatar/kafka-go-consumer:latest
-          EOF
+     # - name: Deploy to remote server
+      #  run: |
+      #    ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 sahak@45.159.75.103 << 'EOF'
+      #      docker pull sahakavatar/kafka-go-consumer:latest
+       #     docker stop consumer-app || true
+       #     docker rm consumer-app || true
+       #     docker run -d -p 9090:9090 --name consumer-app sahakavatar/kafka-go-consumer:latest
+       #   EOF

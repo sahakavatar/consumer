@@ -12,9 +12,9 @@ var messages []string // In-memory store for messages
 func main() {
 	// Kafka consumer configuration
 	config := &kafka.ConfigMap{
-		"bootstrap.servers": "kafka:9092", // Replace with your Kafka broker(s)
-		"group.id":          "my-group",   // Consumer group ID
-		"auto.offset.reset": "earliest",   // Start reading from the earliest offset
+		"bootstrap.servers": "localhost:9092", // Replace with your Kafka broker(s)
+		"group.id":          "my-group",       // Consumer group ID
+		"auto.offset.reset": "earliest",       // Start reading from the earliest offset
 	}
 
 	// Create a new Kafka consumer
