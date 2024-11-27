@@ -49,7 +49,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 sahak@45.159.75.103 << 'EOF'
             docker pull sahakavatar/kafka-go-consumer:latest
-            docker stop my-gin-app || true
-            docker rm my-gin-app || true
-            docker run -d -p 81:81 --name my-gin-app sahakavatar/kafka-go-consumer:latest
+            docker stop consumer-app || true
+            docker rm consumer-app || true
+            docker run -d -p 9090:9090 --name consumer-app sahakavatar/kafka-go-consumer:latest
           EOF
